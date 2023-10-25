@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4ngy47bato4o"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_e43o1"]
+[ext_resource type="Texture2D" uid="uid://dfcp2b6uor0fs" path="res://Resources/Graphics/Player.svg" id="2_gel51"]
+[ext_resource type="PackedScene" uid="uid://byeeisbcq2now" path="res://Scenes/Objects/arrow.tscn" id="3_2g4p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g6nc"]
+size = Vector2(86, 120)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_e43o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_gel51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_2g6nc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="Arrow" parent="." instance=ExtResource("3_2g4p0")]
